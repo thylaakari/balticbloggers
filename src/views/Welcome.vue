@@ -1,13 +1,13 @@
 <template>
-    <div class="d-flex flex-column align-self-center text-center">
+    <div class="d-flex flex-column align-self-center text-center body">
         <div class="img-fluid">
             <img src="../assets/hi.png" alt="">
         </div>
         <h3>Welcome to</h3>
         <hr>
-        <h1>baltic</h1>
-        <h1>bloggers</h1>
-        <h1>base</h1>
+        <h1 class="display-4">baltic</h1>
+        <h1 class="display-4">bloggers</h1>
+        <h1 class="display-4">base</h1>
         <hr>
         <div class="localize"><strong>RU</strong> / EN</div>
         <div class="bottom-sep"></div>
@@ -16,15 +16,19 @@
 
 <script>
 
-export default {
-    name: 'Home',
-    metaInfo: {
-      title: 'Приветствие',
+    export default {
+        name: 'Welcome',
+        metaInfo: {
+            title: 'Приветствие',
+        }
     }
-}
 </script>
 
-<style scoped>
+<style>
+    .body {
+        height: 100%;
+        background: linear-gradient(to bottom, #3f53b2 50%, #ed4e81 50%);
+    }
     h1 {
         text-transform: capitalize;
         color: #fff;
@@ -46,16 +50,6 @@ export default {
         color: #fff;
         position: absolute;
         bottom: 40px;
-        transform: translateX(-50%);
-        left: 50%;
-    }
-    .bottom-sep {
-        width: 40%;
-        height: 5px;
-        background-color: #000000;
-        border-radius: 100px;
-        position: absolute;
-        bottom: 10px;
         transform: translateX(-50%);
         left: 50%;
     }
