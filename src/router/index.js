@@ -24,6 +24,21 @@ const routes = [
     name: 'Enter',
     component: () => import('../views/Enter.vue')
   },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/Register.vue')
+  },
+  {
+    path: '/blogger',
+    name: 'Blogger',
+    component: () => import('../views/Blogger.vue')
+  },
+  {
+    path: '/menu',
+    name: 'Menu',
+    component: () => import('../views/Menu.vue')
+  },
 ]
 
 const router = new VueRouter({

@@ -1,6 +1,10 @@
 <template>
     <div class="d-flex flex-column align-self-center gutters">
-        <div class="arrow-back"></div>
+        <div class="arrow-back">
+            <a href="" class="d-block">
+                <img src="../assets/arrowback.png" alt="">
+            </a>
+        </div>
         <h2>Вход</h2>
         <form>
             <div class="form-group">
@@ -40,7 +44,7 @@
         border-bottom: 1px solid #dadada;
     }
     h2 {
-        margin-top: 100px;
+        margin-top: 70px;
         margin-bottom: 50px;
     }
     .btns {

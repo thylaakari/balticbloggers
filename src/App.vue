@@ -9,6 +9,7 @@
 
   html, body {
     height: 100%;
+    font-family: 'Montserrat', sans-serif;
   }
   #app {
     height: 100%;
@@ -23,12 +24,15 @@
   }
   .bottom-sep {
     width: 40%;
-    height: 5px;
+    height: 4px;
     background-color: #000000;
     border-radius: 100px;
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     transform: translateX(-50%);
     left: 50%;
+  }
+  .arrow-back  {
+    margin-top: 30px;
   }
 </style>

@@ -1,16 +1,50 @@
 <template>
-    <div class="d-flex flex-column align-self-center text-center">
-        <div class="img-fluid">
-            <img src="../assets/hi.png" alt="">
+    <div class="d-flex flex-column align-self-center gutters">
+        <div class="d-flex justify-content-between">
+            <i class="fas fa-bars purple"></i>
+            <i class="fas fa-filter"></i>
         </div>
-        <h3>Welcome to</h3>
-        <hr>
-        <h1>baltic</h1>
-        <h1>bloggers</h1>
-        <h1>base</h1>
-        <hr>
-        <div class="localize"><strong>RU</strong> / EN</div>
-        <div class="bottom-sep"></div>
+        <h2 class="display-4">Baltic Bloggers Base</h2>
+        <div class="chips">
+            <div class="chip">
+                <i class="fas fa-check text-success"></i> Youtube
+            </div>
+            <div class="chip">
+                <i class="fas fa-check text-success"></i> Россия
+            </div>
+        </div>
+        <a href="" class="resetf">Сбросить фильтры</a>
+        <div class="bloggers">
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+            <div class="blogger">
+                <img src="../assets/girl.png" alt="">
+                <p>Имя блогера</p>
+            </div>
+        </div>
+        <button class="btn btn-light btn-block">Показать всех</button>
     </div>
 </template>
 
@@ -19,12 +53,50 @@
 export default {
     name: 'Home',
     metaInfo: {
-      title: 'Приветствие',
+      title: 'Главная',
+    },
+    data: () => ({
+
+    }),
+    methods: {
+
     }
 }
 </script>
 
 <style scoped>
+    h5 {
+        font-size: .9rem;
+        color: #c8c6c6;
+    }
+    .blogger {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+    }
+    .blogger img {
+        width: 23%;
+        border-radius: 7px;
+        margin-right: 20px;
+    }
+    .chips {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .resetf {
+        color: #000;
+        text-decoration: underline;
+        font-size: .7rem;
+        text-align: center;
+    }
+    .chips i {
+        font-size: .7rem;
+    }
+    .chip {
+        margin-right: 20px;
+    }
     h1 {
         text-transform: capitalize;
         color: #fff;
@@ -34,29 +106,24 @@ export default {
         color: #ffffff7d;
         font-size: 1em;
     }
-    img {
-        margin: 70px 0;
-    }
     hr {
         border-top: 1px solid #ffffff40;
         width: 60%;
         margin: 0 auto;
     }
-    .localize {
-        color: #fff;
-        position: absolute;
-        bottom: 40px;
-        transform: translateX(-50%);
-        left: 50%;
+    .gutters {
+        margin: 0 15px; /* добавить 50px внизу если есть fixed pos */
+        padding-top: 20px;
     }
-    .bottom-sep {
-        width: 40%;
-        height: 5px;
-        background-color: #000000;
-        border-radius: 100px;
-        position: absolute;
-        bottom: 10px;
-        transform: translateX(-50%);
-        left: 50%;
+    i {
+        font-size: 1.5rem;
+    }
+    .purple {
+        color: #3f53b2;
+    }
+    h2 {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-top: 20px;
     }
 </style>
