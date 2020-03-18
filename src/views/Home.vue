@@ -65,6 +65,10 @@ export default {
 </script>
 
 <style scoped>
+    .display-4 {
+        font-size: 25px;
+        color: #333333;
+    }
     h5 {
         font-size: .9rem;
         color: #c8c6c6;
@@ -73,6 +77,11 @@ export default {
         display: flex;
         align-items: center;
         margin: 20px 0;
+        font-size: 14px;
+    }
+    .blogger p {
+        margin: 0;
+        padding: 0;
     }
     .blogger img {
         width: 23%;
@@ -88,7 +97,7 @@ export default {
     .resetf {
         color: #000;
         text-decoration: underline;
-        font-size: .7rem;
+        font-size: 13px;
         text-align: center;
     }
     .chips i {
@@ -96,6 +105,7 @@ export default {
     }
     .chip {
         margin-right: 20px;
+        font-size: 13px;
     }
     h1 {
         text-transform: capitalize;

@@ -47,16 +47,18 @@
     }
     h3 {
         font-weight: 300;
-        color: #2323237d;
-        font-size: 1em;
+        color: #000;
+        font-size: 14px;
         margin-top: 50px;
     }
     .display-4 {
-        font-size: 1.6rem;
+        font-size: 25px;
+        color: #333333;
         margin-bottom: 30px;
     }
     .silent {
-        color: #2323237d;
-        font-size: 1em;
+        color: #bebebe;
+        font-size: 15px;
+        margin-bottom: 30px;
     }
 </style>

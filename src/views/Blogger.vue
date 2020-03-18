@@ -7,6 +7,7 @@
             <h2 class="display-4">Ирина Блогер</h2>
             <h3>Россия</h3>
         </div>
+        <div class="big-name">BLOG</div>
         <div class="blog gutters">
             <h5>Обо мне</h5>
             <p class="small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste minima omnis porro reprehenderit. Eius error illo itaque magnam nesciunt, voluptates!</p>
@@ -26,7 +27,7 @@
                 </div>
             </div>
             <button class="btn btn-light btn-block">Вернуться к списку</button>
-            <div class="bottom-sep"></div>
+<!--            <div class="bottom-sep"></div>-->
         </div>
     </div>
 </template>
@@ -41,6 +42,20 @@
 </script>
 
 <style scoped>
+    .big-name {
+        opacity: 0.7;
+        font-size: 100px;
+        line-height: normal;
+        color: #eff0f1;
+        position: absolute;
+        top: 270px;
+        left: -11px;
+        z-index: 0;
+    }
+    .small {
+        font-size: 17px;
+        color: #000000;
+    }
     .item {
         margin-right: 25px;
     }
@@ -55,6 +70,7 @@
     }
     .blog {
         padding-top: 50px;
+        position: relative;
     }
     .gutters {
         margin: 0 15px;
@@ -75,9 +91,16 @@
         height: 100%;
     }
     .display-4 {
-        font-size: 1.7rem;
+        font-size:26px;
+        color: #000000;
     }
     h3 {
-        font-size: 1rem;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    h5 {
+        font-size: 17px;
+        color: #000000;
+        font-weight: bold;
     }
 </style>

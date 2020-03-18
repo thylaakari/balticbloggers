@@ -4,10 +4,11 @@
             <h5>Baltic Bloggers Base</h5>
             <i class="fas fa-times rose"></i>
         </div>
-        <div class="d-flex flex-column mt-5">
+        <div class="d-flex flex-column mt-5 mb-5">
             <a href="">Блоггеры</a>
             <a href="">Выход</a>
         </div>
+        <div class="big-name">MENU</div>
         <div class="locale">
             RU/<strong>EN</strong>
         </div>
@@ -21,6 +22,16 @@
 </script>
 
 <style scoped>
+    .big-name {
+        opacity: 0.7;
+        font-size: 100px;
+        line-height: normal;
+        color: #eff0f1;
+        position: absolute;
+        top: 270px;
+        left: -11px;
+        z-index: 0;
+    }
     h5 {
         font-size: 15px;
         color: #333333;
@@ -36,5 +47,12 @@
         color: #000;
         font-size: 17px;
         margin-bottom: 15px;
+    }
+    .locale {
+        color: #b9b9b9;
+
+    }
+    .locale strong {
+        color: #000000;
     }
 </style>

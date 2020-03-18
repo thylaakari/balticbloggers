@@ -39,6 +39,11 @@ const routes = [
     name: 'Menu',
     component: () => import('../views/Menu.vue')
   },
+  {
+    path: '/filter',
+    name: 'Filter',
+    component: () => import('../views/Filter.vue')
+  },
 ]
 
 const router = new VueRouter({

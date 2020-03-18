@@ -5,6 +5,8 @@
                 <img src="../assets/arrowback.png" alt="">
             </a>
         </div>
+        <div class="rect"></div>
+        <div class="rect2"></div>
         <h2>Регистрация</h2>
         <form>
             <div class="form-group">
@@ -35,7 +37,7 @@
                 <button type="button" class="btn btn-link btn-block text-dark">Войти</button>
             </div>
         </form>
-        <div class="bottom-sep"></div>
+<!--        <div class="bottom-sep"></div>-->
     </div>
 </template>
 
@@ -60,6 +62,7 @@
     h2 {
         margin-top: 50px;
         margin-bottom: 50px;
+        font-size: 34px;
     }
     .btns {
         margin-top: 50px;

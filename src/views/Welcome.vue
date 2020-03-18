@@ -25,6 +25,10 @@
 </script>
 
 <style>
+    .display-4 {
+        font-size: 41px;
+        font-weight: 400;
+    }
     .body {
         height: 100%;
         background: linear-gradient(to bottom, #3f53b2 50%, #ed4e81 50%);
@@ -36,7 +40,7 @@
     h3 {
         font-weight: 300;
         color: #ffffff7d;
-        font-size: 1em;
+        font-size: 14px;
     }
     img {
         margin: 70px 0;
@@ -47,6 +51,7 @@
         margin: 0 auto;
     }
     .localize {
+        font-size: 17px;
         color: #fff;
         position: absolute;
         bottom: 40px;

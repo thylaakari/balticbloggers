@@ -14,6 +14,9 @@
   #app {
     height: 100%;
   }
+  body {
+    background-color: #fffcfc;
+  }
   .btn-light {
     background-color: #ed4e81;
     color: #fff;
@@ -24,7 +27,7 @@
   }
   .bottom-sep {
     width: 40%;
-    height: 4px;
+    height: 5px;
     background-color: #000000;
     border-radius: 100px;
     position: fixed;
@@ -34,5 +37,24 @@
   }
   .arrow-back  {
     margin-top: 30px;
+  }
+  .rect {
+    width: 93px;
+    height: 195px;
+    transform: rotate(34deg);
+    border-radius: 44px;
+    background-color: #ffe2e2;
+    position: fixed;
+    right: -73px;
+  }
+  .rect2 {
+    width: 93px;
+    height: 195px;
+    transform: rotate(34deg);
+    border-radius: 44px;
+    background-color: #ffe2e2;
+    position: fixed;
+    left: -109px;
+    bottom: 126px;
   }
 </style>
