@@ -17,9 +17,14 @@
                 <img src="../assets/girl.png" alt="">
             </slide>
         </carousel>
-        <p class="silent">Привет! <br>Заходи в наше приложение, тебя ждет много интересного :)</p>
-        <router-link tag="button" to="/enter" type="button" class="btn btn-light btn-block">Войти</router-link>
-        <router-link type="button" tag="button" to="/register" class="btn btn-primary btn-block">Зарегистрироваться</router-link>
+        <p class="silent">{{ $store.getters.locale === 'ru' ? 'Привет' : 'Hi' }}! <br>
+            {{ $store.getters.locale === 'ru' ? 'Заходи в наше приложение, тебя ждет много интересного :)' : 'Come into our application, you will find many interesting things :)' }}</p>
+        <router-link tag="button" to="/enter" type="button" class="btn btn-light btn-block">
+            {{ $store.getters.locale === 'ru' ? 'Войти' : 'Sign in' }}
+        </router-link>
+        <router-link type="button" tag="button" to="/register" class="btn btn-primary btn-block">
+            {{ $store.getters.locale === 'ru' ? 'Зарегистрироваться' : 'Sign up' }}
+        </router-link>
 <!--        <div class="bottom-sep"></div>-->
     </div>
 </template>

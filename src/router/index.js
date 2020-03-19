@@ -49,12 +49,12 @@ const routes = [
     component: () => import('../views/Menu.vue')
   },
   {
-    path: '/filter',
+    path: '/filtere',
     name: 'Filter',
     meta: {
       auth: true
     },
-    component: () => import('../views/Filter.vue')
+    component: () => import('../views/Filtere.vue')
   },
   {
     path: '/search',

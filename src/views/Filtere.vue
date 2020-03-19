@@ -3,10 +3,10 @@
         <div class="d-flex justify-content-between">
             <router-link tag="i" class="fas fa-bars purple" to="/menu"></router-link>
         </div>
-        <h2 class="display-4">Фильтры</h2>
+        <h2 class="display-4">{{ $store.getters.locale === 'ru' ? 'Фильтры' : 'Filters' }}</h2>
         <div class="filters">
             <div class="filter ml">
-                <h3>Страна</h3>
+                <h3>{{ $store.getters.locale === 'ru' ? 'Страна' : 'Country' }}</h3>
                 <div class="form-group">
                     <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">Выбрано стран: {{values.length}}</span></template>
                     <multiselect
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="filter ml">
-                <h3>Тематика</h3>
+                <h3>{{ $store.getters.locale === 'ru' ? 'Тематика' : 'Subject' }}</h3>
                 <div class="form-group">
                     <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">Выбрано тем: {{values.length}}</span></template>
                     <multiselect
@@ -46,11 +46,11 @@
                 </div>
             </div>
             <div class="filter ml">
-                <h3>Возраст аудитории</h3>
+                <h3>{{ $store.getters.locale === 'ru' ? 'Возраст аудитории' : 'Ages' }}</h3>
                 <vue-range-slider :bg-style="bgStyle" :tooltip-style="tooltipStyle" :process-style="processStyle" v-model="ages"></vue-range-slider>
             </div>
             <div class="filter ml">
-                <h3>Социальная сеть</h3>
+                <h3>{{ $store.getters.locale === 'ru' ? 'Социальная сеть' : 'Social' }}</h3>
                 <div class="form-group">
                     <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">Выбрано стран: {{values.length}}</span></template>
                     <multiselect
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-light btn-block" @click="submit">Применить</button>
+        <button class="btn btn-light btn-block" @click="submit">{{ $store.getters.locale === 'ru' ? 'Применить' : 'Accept' }}</button>
     </div>
 </template>
 
@@ -82,7 +82,7 @@
     import Search from "./Search";
 
     export default {
-        name: 'Home',
+        name: 'Filter',
         metaInfo: {
             title: 'Главная',
         },
@@ -91,8 +91,9 @@
             country: [],
             theme: [],
             countries: [
-                 {name: 'Эстония'},
-                 {name: 'Финляндия'},
+                {name: 'Россия'},
+                {name: 'Финляндия'},
+                {name: 'Эстония'},
             ],
             themes: [
                 {name: 'Спорт'},
@@ -182,7 +183,7 @@
                 })
             }
         },
-        created() {
+        mounted() {
             this.min = 12
             this.max = 70
             this.bgStyle = {

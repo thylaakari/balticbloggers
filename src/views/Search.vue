@@ -2,7 +2,7 @@
     <div class="d-flex flex-column align-self-center gutters">
         <div class="d-flex justify-content-between">
             <router-link tag="i" class="fas fa-bars purple" to="/menu"></router-link>
-            <router-link tag="i" class="fas fa-filter" to="/filter"></router-link>
+            <router-link tag="i" class="fas fa-filter" to="/filtere"></router-link>
         </div>
         <h2 class="display-4">Baltic Bloggers Base</h2>
 <!--        <div class="chips">-->
@@ -13,7 +13,7 @@
 <!--                <i class="fas fa-check text-success"></i> Россия-->
 <!--            </div>-->
 <!--        </div>-->
-        <router-link to="/" class="resetf">Сбросить фильтры</router-link>
+        <router-link to="/" class="resetf">{{ $store.getters.locale === 'ru' ? 'Сбросить фильтры' : 'Reset filters' }}</router-link>
         <div class="bloggers" v-if="bloggers.length">
             <div class="blogger" v-for="item in bloggers">
                 <router-link :to="`/blogger/${item.objectId}`" class="blogger">
@@ -23,9 +23,9 @@
             </div>
         </div>
         <div v-else>
-            <p class="text-center mt-4">Ничего не найдено</p>
+            <p class="text-center mt-4">{{ $store.getters.locale === 'ru' ? 'Ничего не найдено' : 'Records not found' }}</p>
         </div>
-        <router-link to="/" tag="button" class="btn btn-light btn-block mt-2">Показать всех</router-link>
+        <router-link to="/" tag="button" class="btn btn-light btn-block mt-2">{{ $store.getters.locale === 'ru' ? 'Показать всех' : 'Show all' }}</router-link>
     </div>
 </template>
 
@@ -47,7 +47,6 @@
             if (this.$route.query.filter) {
                 // console.log(this.$route.query.filter)
                 const where = this.$route.query.filter
-                console.log(this.$props)
                 const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
                 this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
             }

@@ -21,6 +21,7 @@ Vue.use(VueMeta, {
 })
 Vue.use(VueCarousel)
 
+
 new Vue({
   router,
   store,

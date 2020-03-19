@@ -2,7 +2,7 @@
     <div class="d-flex flex-column align-self-center gutters">
         <div class="d-flex justify-content-between">
             <router-link tag="i" class="fas fa-bars purple" to="/menu"></router-link>
-            <router-link tag="i" class="fas fa-filter" to="/filter"></router-link>
+            <router-link tag="i" class="fas fa-filter" to="/filtere"></router-link>
         </div>
         <h2 class="display-4">Baltic Bloggers Base</h2>
         <div class="bloggers">
@@ -53,7 +53,7 @@ export default {
     .blogger {
         display: flex;
         align-items: center;
-        margin: 20px 0;
+        margin: 15px 0;
         font-size: 14px;
     }
     .blogger p {

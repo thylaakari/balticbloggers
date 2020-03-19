@@ -9,11 +9,11 @@
         </div>
         <div class="big-name">BLOG</div>
         <div class="blog gutters">
-            <h5>Обо мне</h5>
+            <h5>{{ $store.getters.locale === 'ru' ? 'Обо мне' : 'About' }}</h5>
             <p class="small">{{blogger[0].about}}</p>
-            <h5>Аудитория</h5>
-            <p class="small">{{blogger[0].auditory}} лет</p>
-            <h5>Ссылки</h5>
+            <h5>{{ $store.getters.locale === 'ru' ? 'Аудитория' : 'Auditory' }}</h5>
+            <p class="small">{{blogger[0].auditoryfrom}} - {{blogger[0].auditoryto}} {{ $store.getters.locale === 'ru' ? 'лет' : 'years old' }}</p>
+            <h5>{{ $store.getters.locale === 'ru' ? 'Ссылки' : 'Links' }}</h5>
             <div class="d-flex mb-4">
                 <div class="d-flex align-items-center">
                     <a :href="blogger[0].youtube" class="d-block item" target="_blank" v-if="blogger[0].youtube">
@@ -26,7 +26,7 @@
                     </a>
                 </div>
             </div>
-            <router-link tag="button" to="/" class="btn btn-light btn-block">Вернуться к списку</router-link>
+            <router-link tag="button" to="/" class="btn btn-light btn-block">{{ $store.getters.locale === 'ru' ? 'Венуться к списку' : 'Back to list' }}</router-link>
 <!--            <div class="bottom-sep"></div>-->
         </div>
     </div>

@@ -5,13 +5,13 @@
             <router-link tag="i" class="fas fa-times rose" to="/"></router-link>
         </div>
         <div class="d-flex flex-column mt-5 mb-5">
-            <router-link tag="a" to="/" href="">Блоггеры</router-link>
-            <a href="" @click.prevent="logout">Выход</a>
+            <router-link tag="a" to="/" href="">{{ $store.getters.locale === 'ru' ? 'Блоггеры' : 'Bloggers' }}</router-link>
+            <a href="" @click.prevent="logout">{{ $store.getters.locale === 'ru' ? 'Выход' : 'Log out' }}</a>
         </div>
         <div class="big-name">MENU</div>
-        <div class="locale">
-            RU/<strong>EN</strong>
-        </div>
+        <div class="localize">
+            <strong @click="setRu">RU</strong> /
+            <span @click="setEn">EN</span></div>
     </div>
 </template>
 
@@ -25,6 +25,12 @@
             async logout() {
                 await Backendless.UserService.logout()
                 this.$router.push('/enter')
+            },
+            async setRu() {
+                await this.$store.commit('setRu')
+            },
+            async setEn() {
+                await this.$store.commit('setEn')
             }
         }
     }

@@ -10,14 +10,13 @@
         <h1 class="display-4">base</h1>
         <hr>
         <div class="localize">
-            <router-link tag="strong" to="/auth" @click="setRu">RU</router-link> /
-            <router-link tag="span" to="/auth" @click="setEn">EN</router-link></div>
+            <strong @click="setRu">RU</strong> /
+            <span @click="setEn">EN</span></div>
         <div class="bottom-sep"></div>
     </div>
 </template>
 
 <script>
-
     export default {
         name: 'Welcome',
         metaInfo: {
@@ -25,10 +24,12 @@
         },
         methods: {
             async setRu() {
-                await this.$store.dispatch('setRu')
+                await this.$store.commit('setRu')
+                this.$router.push('/auth')
             },
             async setEn() {
-                await this.$store.dispatch('setEn')
+                await this.$store.commit('setEn')
+                this.$router.push('/auth')
             }
         }
     }

@@ -19,12 +19,6 @@ export default new Vuex.Store({
     locale: state => state.locale
   },
   actions: {
-    async setEn({commit}) {
-      await this.commit('setEn')
-    },
-    async setRu({commit}) {
-      await this.commit('setRu')
-    }
   },
   modules: {
   }
