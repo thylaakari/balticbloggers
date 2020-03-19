@@ -2,31 +2,31 @@
     <div class="d-flex flex-column align-self-center">
         <div class="avatar">
             <div class="img-c">
-                <img src="../assets/girl.png" alt="">
+                <img :src="`../avatars/${blogger[0].avatar}`" :alt="blogger[0].name">
             </div>
-            <h2 class="display-4">Ирина Блогер</h2>
-            <h3>Россия</h3>
+            <h2 class="display-4">{{blogger[0].name}}</h2>
+            <h3>{{blogger[0].country}}</h3>
         </div>
         <div class="big-name">BLOG</div>
         <div class="blog gutters">
             <h5>Обо мне</h5>
-            <p class="small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste minima omnis porro reprehenderit. Eius error illo itaque magnam nesciunt, voluptates!</p>
+            <p class="small">{{blogger[0].about}}</p>
             <h5>Аудитория</h5>
-            <p class="small">18-25 лет</p>
+            <p class="small">{{blogger[0].auditory}} лет</p>
             <h5>Ссылки</h5>
             <div class="d-flex mb-4">
                 <div class="d-flex align-items-center">
-                    <a href="" class="d-block item">
+                    <a :href="blogger[0].youtube" class="d-block item" target="_blank" v-if="blogger[0].youtube">
                         <i class="fab fa-youtube you"></i>
                         <span>Youtube</span>
                     </a>
-                    <a href="" class="d-block item">
+                    <a :href="blogger[0].insta" class="d-block item" target="_blank" v-if="blogger[0].insta">
                         <i class="fab fa-instagram insta"></i>
                         <span>Instagram</span>
                     </a>
                 </div>
             </div>
-            <button class="btn btn-light btn-block">Вернуться к списку</button>
+            <router-link tag="button" to="/" class="btn btn-light btn-block">Вернуться к списку</router-link>
 <!--            <div class="bottom-sep"></div>-->
         </div>
     </div>
@@ -37,6 +37,19 @@
         name: "Blogger",
         metaInfo: {
             title: 'Страница блогера'
+        },
+        data: () => ({
+            blogger: []
+        }),
+        async mounted() {
+            const id = this.$route.params.id
+            const where = `objectId = '${id}'`
+            const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
+            try {
+                this.blogger = await Backendless.Data.of('users').find(queryBuilder)
+            } catch (e) {
+
+            }
         }
     }
 </script>

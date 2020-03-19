@@ -8,14 +8,18 @@
   },
   "dependencies": {
     "@mdi/font": "^5.0.45",
+    "backendless": "^5.8.6",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
+    "firebase": "^7.11.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
     "vue-meta": "^2.3.3",
+    "vue-multiselect": "^2.1.6",
     "vue-range-component": "^1.0.3",
     "vue-router": "^3.1.5",
+    "vuelidate": "^0.7.5",
     "vuex": "^3.1.2"
   },
   "devDependencies": {

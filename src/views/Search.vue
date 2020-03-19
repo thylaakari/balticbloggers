@@ -5,7 +5,16 @@
             <router-link tag="i" class="fas fa-filter" to="/filter"></router-link>
         </div>
         <h2 class="display-4">Baltic Bloggers Base</h2>
-        <div class="bloggers">
+<!--        <div class="chips">-->
+<!--            <div class="chip">-->
+<!--                <i class="fas fa-check text-success"></i> Youtube-->
+<!--            </div>-->
+<!--            <div class="chip">-->
+<!--                <i class="fas fa-check text-success"></i> Россия-->
+<!--            </div>-->
+<!--        </div>-->
+        <router-link to="/" class="resetf">Сбросить фильтры</router-link>
+        <div class="bloggers" v-if="bloggers.length">
             <div class="blogger" v-for="item in bloggers">
                 <router-link :to="`/blogger/${item.objectId}`" class="blogger">
                     <img :src="`avatars/${item.avatar}`" :alt="item.name">
@@ -13,29 +22,42 @@
                 </router-link>
             </div>
         </div>
-<!--        <button class="btn btn-light btn-block">Показать всех</button>-->
+        <div v-else>
+            <p class="text-center mt-4">Ничего не найдено</p>
+        </div>
+        <router-link to="/" tag="button" class="btn btn-light btn-block mt-2">Показать всех</router-link>
     </div>
 </template>
 
 <script>
 
-export default {
-    name: 'Home',
-    metaInfo: {
-      title: 'Главная',
-    },
-    data: () => ({
-        bloggers: []
-    }),
-    methods: {
+    export default {
+        name: 'Search',
+        metaInfo: {
+            title: 'Список блоггеров',
+        },
+        props: ['where', 'country', 'theme', 'soc', 'ages'],
+        data: () => ({
+            bloggers: []
+        }),
+        methods: {
 
-    },
-    async mounted() {
-        const where = "type = 'blogger'"
-        const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
-        this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
+        },
+        async mounted() {
+            if (this.$route.query.filter) {
+                // console.log(this.$route.query.filter)
+                const where = this.$route.query.filter
+                console.log(this.$props)
+                const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
+                this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
+            }
+            else {
+                const where = "type = 'blogger'"
+                const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
+                this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
+            }
+        }
     }
-}
 </script>
 
 <style scoped>
@@ -53,7 +75,7 @@ export default {
     .blogger {
         display: flex;
         align-items: center;
-        margin: 20px 0;
+        margin: 15px 0;
         font-size: 14px;
     }
     .blogger p {

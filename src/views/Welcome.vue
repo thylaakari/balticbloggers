@@ -9,7 +9,9 @@
         <h1 class="display-4">bloggers</h1>
         <h1 class="display-4">base</h1>
         <hr>
-        <div class="localize"><strong>RU</strong> / EN</div>
+        <div class="localize">
+            <router-link tag="strong" to="/auth" @click="setRu">RU</router-link> /
+            <router-link tag="span" to="/auth" @click="setEn">EN</router-link></div>
         <div class="bottom-sep"></div>
     </div>
 </template>
@@ -20,6 +22,14 @@
         name: 'Welcome',
         metaInfo: {
             title: 'Приветствие',
+        },
+        methods: {
+            async setRu() {
+                await this.$store.dispatch('setRu')
+            },
+            async setEn() {
+                await this.$store.dispatch('setEn')
+            }
         }
     }
 </script>

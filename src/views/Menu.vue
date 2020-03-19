@@ -2,11 +2,11 @@
     <div class="d-flex flex-column align-self-center gutters">
         <div class="d-flex justify-content-between">
             <h5>Baltic Bloggers Base</h5>
-            <i class="fas fa-times rose"></i>
+            <router-link tag="i" class="fas fa-times rose" to="/"></router-link>
         </div>
         <div class="d-flex flex-column mt-5 mb-5">
-            <a href="">Блоггеры</a>
-            <a href="">Выход</a>
+            <router-link tag="a" to="/" href="">Блоггеры</router-link>
+            <a href="" @click.prevent="logout">Выход</a>
         </div>
         <div class="big-name">MENU</div>
         <div class="locale">
@@ -17,7 +17,16 @@
 
 <script>
     export default {
-        name: "Menu"
+        name: "Menu",
+        metaInfo: {
+            title: 'Меню',
+        },
+        methods: {
+            async logout() {
+                await Backendless.UserService.logout()
+                this.$router.push('/enter')
+            }
+        }
     }
 </script>
 

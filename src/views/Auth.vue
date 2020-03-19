@@ -8,6 +8,7 @@
                 :paginationColor="'#ede0de'"
                 :paginationPadding="5"
                 :paginationSize="7"
+                style="height: 270px"
         >
             <slide>
                 <img src="../assets/girl.png" alt="">
@@ -17,9 +18,9 @@
             </slide>
         </carousel>
         <p class="silent">Привет! <br>Заходи в наше приложение, тебя ждет много интересного :)</p>
-        <button type="button" class="btn btn-light btn-block">Войти</button>
-        <button type="button" class="btn btn-primary btn-block">Зарегистрироваться</button>
-        <div class="bottom-sep"></div>
+        <router-link tag="button" to="/enter" type="button" class="btn btn-light btn-block">Войти</router-link>
+        <router-link type="button" tag="button" to="/register" class="btn btn-primary btn-block">Зарегистрироваться</router-link>
+<!--        <div class="bottom-sep"></div>-->
     </div>
 </template>
 
