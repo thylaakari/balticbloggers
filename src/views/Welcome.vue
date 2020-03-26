@@ -35,7 +35,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .display-4 {
         font-size: 41px;
         font-weight: 400;

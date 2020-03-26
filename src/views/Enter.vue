@@ -88,7 +88,7 @@
                 try {
                     await Backendless.UserService.login(this.email, this.password, true)
                 } catch (e) {
-                    alert($store.getters.locale === 'ru' ? 'Введен неверный email или пароль' : 'Incorrect email or password')
+                    alert(this.$store.getters.locale === 'ru' ? 'Введен неверный email или пароль' : 'Incorrect email or password')
                 }
                 await this.$router.push('/')
             }

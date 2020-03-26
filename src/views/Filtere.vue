@@ -82,7 +82,7 @@
     import Search from "./Search";
 
     export default {
-        name: 'Filter',
+        name: 'Filtere',
         metaInfo: {
             title: 'Главная',
         },
@@ -98,12 +98,27 @@
             themes: [
                 {name: 'Спорт'},
                 {name: 'Мода'},
+                {name: 'Фитнес'},
+                {name: 'Еда'},
+                {name: 'Психология'},
+                {name: 'Бизнес'},
+                {name: 'Материнство/семья'},
+                {name: 'Лайфстайл'},
+                {name: 'Юмор'},
+                {name: 'Рукоделие'},
+                {name: 'Фотография'},
+                {name: 'Обзоры'},
+                {name: 'Экология'},
+                {name: 'Бьюти'},
             ],
             soc: [],
             socs: [
                 {name: 'Youtube'},
                 {name: 'Instagram'},
             ],
+            bgStyle: '',
+            tooltipStyle: '',
+            processStyle: '',
         }),
         methods: {
             async submit() {

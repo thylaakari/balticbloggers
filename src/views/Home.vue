@@ -8,7 +8,8 @@
         <div class="bloggers">
             <div class="blogger" v-for="item in bloggers">
                 <router-link :to="`/blogger/${item.objectId}`" class="blogger">
-                    <img :src="`https://backendlessappcontent.com/D016D00F-53A3-4669-FFC7-A20D8A442E00/console/dbwajistfuuqpjxznlwwtvwpbiqwnnzynwuy/files/view/avatars/${item.avatar}`" :alt="item.name">
+<!--                    <img :src="`https://backendlessappcontent.com/D016D00F-53A3-4669-FFC7-A20D8A442E00/console/dbwajistfuuqpjxznlwwtvwpbiqwnnzynwuy/files/view/avatars/${item.avatar}`" :alt="item.name">-->
+                    <img src="avatars/noavatar.jpg" :alt="item.name">
                     <p>{{item.name}}</p>
                 </router-link>
             </div>

@@ -132,7 +132,7 @@
                             type="text"
                             class="form-control"
                             id="insta"
-                            placeholder="https://www.instagram.com/user/"
+                            placeholder="username"
                             v-model.trim="insta"
                     >
                 </div>
@@ -149,8 +149,7 @@
                 <div class="form-group">
                     <label for="selecttheme"><strong>Тема</strong></label>
                     <select class="form-control" id="selecttheme" v-model.trim="theme">
-                        <option value="Спорт">Спорт</option>
-                        <option value="Мода">Мода</option>
+                        <option v-for="i in themes" :value="i">{{i}}</option>
                     </select>
                 </div>
                 <div class="input-group mb-3">
@@ -191,7 +190,23 @@
             insta: '',
             youtube: '',
             theme: 'Спорт',
-            avatar: ''
+            themes: [
+                'Спорт',
+                'Мода',
+                'Фитнес',
+                'Еда',
+                'Психология',
+                'Бизнес',
+                'Материнство/семья',
+                'Лайфстайл',
+                'Юмор',
+                'Рукоделие',
+                'Фотография',
+                'Обзоры',
+                'Экология',
+                'Бьюти',
+            ],
+            avatar: 'noavatar.jpg'
         }),
         methods: {
             async register() {
@@ -208,21 +223,17 @@
                 user.about = this.about
                 user.auditoryfrom = +this.audfrom
                 user.auditoryto = +this.audto
-                user.insta = this.insta
+                user.insta = 'https://instagram.com/' + this.insta
                 user.youtube = this.youtube
                 user.theme = this.theme
-                user.avatar = 'noavatar.jpg'
+                user.avatar = this.avatar
 
-                // if (this.$refs.file.files[0]) {
-                //     user.avatar = this.avatar.name
-                // } else {
-                //     user.avatar = 'noavatar.jpg'
-                // }
-
+                if (this.$refs.file !== undefined) {
+                    user.avatar = this.$refs.file.files[0].name
+                    await Backendless.Files.upload(this.$refs.file.files[0],'avatars')
+                }
                 await Backendless.UserService.register(user)
-                // if (this.$refs.file.files[0]) {
-                //     await Backendless.Files.upload(this.avatar,'avatars')
-                // }
+                alert('На вашу почту было отправлено сообщение для подтверждения')
                 await this.$router.push('/enter')
             }
         },
