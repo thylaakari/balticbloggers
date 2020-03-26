@@ -68,5 +68,6 @@
         bottom: 40px;
         transform: translateX(-50%);
         left: 50%;
+        cursor: pointer;
     }
 </style>

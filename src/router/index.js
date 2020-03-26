@@ -64,6 +64,16 @@ const routes = [
     },
     component: () => import('../views/Search.vue')
   },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../views/Admin.vue')
+  },
+  {
+    path: '/bloggeredit/:id',
+    name: 'Bloggeredit',
+    component: () => import('../views/Bloggeredit.vue')
+  },
 ]
 
 const router = new VueRouter({

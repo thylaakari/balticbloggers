@@ -1,42 +1,26 @@
 <template>
     <div class="d-flex flex-column align-self-center gutters">
-        <div class="d-flex justify-content-between">
-            <router-link tag="i" class="fas fa-bars purple" to="/menu"></router-link>
-            <router-link tag="i" class="fas fa-filter" to="/filtere"></router-link>
-        </div>
-        <h2 class="display-4">Baltic Bloggers Base</h2>
-<!--        <div class="chips">-->
-<!--            <div class="chip">-->
-<!--                <i class="fas fa-check text-success"></i> Youtube-->
-<!--            </div>-->
-<!--            <div class="chip">-->
-<!--                <i class="fas fa-check text-success"></i> Россия-->
-<!--            </div>-->
-<!--        </div>-->
-        <router-link to="/" class="resetf">{{ $store.getters.locale === 'ru' ? 'Сбросить фильтры' : 'Reset filters' }}</router-link>
-        <div class="bloggers" v-if="bloggers.length">
+        <h2 class="display-4">Админ-панель</h2>
+        <router-link to="/enter" tag="button" class="btn btn-block btn-light mt-3 mb-3" >Вернуться на сайт</router-link>
+        <div class="bloggers">
             <div class="blogger" v-for="item in bloggers">
-                <router-link :to="`/blogger/${item.objectId}`" class="blogger">
+                <router-link :to="`/bloggeredit/${item.objectId}`" class="blogger">
                     <img :src="`https://backendlessappcontent.com/D016D00F-53A3-4669-FFC7-A20D8A442E00/console/dbwajistfuuqpjxznlwwtvwpbiqwnnzynwuy/files/view/avatars/${item.avatar}`" :alt="item.name">
                     <p>{{item.name}}</p>
                 </router-link>
             </div>
         </div>
-        <div v-else>
-            <p class="text-center mt-4">{{ $store.getters.locale === 'ru' ? 'Ничего не найдено' : 'Records not found' }}</p>
-        </div>
-        <router-link to="/" tag="button" class="btn btn-light btn-block mt-2">{{ $store.getters.locale === 'ru' ? 'Показать всех' : 'Show all' }}</router-link>
+        <!--        <button class="btn btn-light btn-block">Показать всех</button>-->
     </div>
 </template>
 
 <script>
 
     export default {
-        name: 'Search',
+        name: 'Admin',
         metaInfo: {
-            title: 'Список блоггеров',
+            title: 'Главная',
         },
-        props: ['where', 'country', 'theme', 'soc', 'ages'],
         data: () => ({
             bloggers: []
         }),
@@ -44,17 +28,12 @@
 
         },
         async mounted() {
-            if (this.$route.query.filter) {
-                // console.log(this.$route.query.filter)
-                const where = this.$route.query.filter
-                const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
-                this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
+            if (!this.$route.query.admin) {
+                this.$router.push('/')
             }
-            else {
-                const where = "type = 'blogger'"
-                const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
-                this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
-            }
+            const where = "type = 'blogger'"
+            const queryBuilder = await Backendless.DataQueryBuilder.create().setWhereClause(where)
+            this.bloggers = await Backendless.Data.of('users').find(queryBuilder)
         }
     }
 </script>
@@ -74,7 +53,6 @@
     .blogger {
         display: flex;
         align-items: center;
-        margin: 15px 0;
         font-size: 14px;
     }
     .blogger p {

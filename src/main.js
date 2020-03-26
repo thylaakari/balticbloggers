@@ -8,6 +8,9 @@ import VueCarousel from 'vue-carousel'
 import Backendless from 'backendless'
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
+import FileUpload from 'v-file-upload'
+
+Vue.use(FileUpload)
 
 Vue.config.productionTip = false
 

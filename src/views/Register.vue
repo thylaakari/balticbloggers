@@ -153,9 +153,15 @@
                         <option value="Мода">Мода</option>
                     </select>
                 </div>
+                <div class="input-group mb-3">
+                    <label for="name"><strong>Аватар</strong></label>
+                    <div>
+                        <input type="file" class="form-control-file" id="file" ref="file">
+                    </div>
+                </div>
             </div>
             <div class="btns">
-                <button type="submit" class="btn btn-light btn-block">{{ $store.getters.locale === 'ru' ? 'Зарегистрирваться' : 'Register' }}</button>
+                <button type="submit" class="btn btn-light btn-block">{{ $store.getters.locale === 'ru' ? 'Зарегистрироваться' : 'Register' }}</button>
                 <router-link type="button" tag="button" class="btn btn-link btn-block text-dark" to="/enter">{{ $store.getters.locale === 'ru' ? 'Войти' : 'Enter' }}</router-link>
             </div>
         </form>
@@ -165,6 +171,7 @@
 
 <script>
     import {required, email, sameAs, numeric} from 'vuelidate/lib/validators'
+    import FileUpload from 'v-file-upload'
 
     export default {
         name: "Register",
@@ -183,7 +190,8 @@
             audto: 30,
             insta: '',
             youtube: '',
-            theme: 'Спорт'
+            theme: 'Спорт',
+            avatar: ''
         }),
         methods: {
             async register() {
@@ -203,7 +211,18 @@
                 user.insta = this.insta
                 user.youtube = this.youtube
                 user.theme = this.theme
+                user.avatar = 'noavatar.jpg'
+
+                // if (this.$refs.file.files[0]) {
+                //     user.avatar = this.avatar.name
+                // } else {
+                //     user.avatar = 'noavatar.jpg'
+                // }
+
                 await Backendless.UserService.register(user)
+                // if (this.$refs.file.files[0]) {
+                //     await Backendless.Files.upload(this.avatar,'avatars')
+                // }
                 await this.$router.push('/enter')
             }
         },

@@ -2,7 +2,8 @@
     <div class="d-flex flex-column align-self-center">
         <div class="avatar">
             <div class="img-c">
-                <img :src="`../avatars/${blogger[0].avatar}`" :alt="blogger[0].name">
+                <img :src="`https://backendlessappcontent.com/D016D00F-53A3-4669-FFC7-A20D8A442E00/console/dbwajistfuuqpjxznlwwtvwpbiqwnnzynwuy/files/view/avatars/${blogger[0].avatar}`" :alt="blogger[0].name">
+
             </div>
             <h2 class="display-4">{{blogger[0].name}}</h2>
             <h3>{{blogger[0].country}}</h3>
@@ -26,7 +27,7 @@
                     </a>
                 </div>
             </div>
-            <router-link tag="button" to="/" class="btn btn-light btn-block">{{ $store.getters.locale === 'ru' ? 'Венуться к списку' : 'Back to list' }}</router-link>
+            <router-link tag="button" to="/" class="btn btn-light btn-block">{{ $store.getters.locale === 'ru' ? 'Вернуться к списку' : 'Back to list' }}</router-link>
 <!--            <div class="bottom-sep"></div>-->
         </div>
     </div>
